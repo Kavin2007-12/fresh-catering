@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Sparkles, Flame } from 'lucide-react';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -32,21 +32,21 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  // Translucent steam particles rising from hot brass uruli vessels & banana leaf feast
+  // Warm translucent steam particles rising from hot brass uruli vessels & banana leaf feast
   const steamParticles = [
-    { left: '60%', bottom: '32%', width: '130px', height: '240px', duration: 4.2, delay: 0 },
-    { left: '72%', bottom: '38%', width: '150px', height: '270px', duration: 4.8, delay: 0.8 },
-    { left: '80%', bottom: '35%', width: '160px', height: '290px', duration: 4.5, delay: 1.4 },
-    { left: '88%', bottom: '40%', width: '120px', height: '220px', duration: 3.8, delay: 0.3 },
+    { left: '58%', bottom: '32%', width: '140px', height: '260px', duration: 4.0, delay: 0 },
+    { left: '70%', bottom: '36%', width: '160px', height: '290px', duration: 4.6, delay: 0.7 },
+    { left: '82%', bottom: '34%', width: '170px', height: '300px', duration: 4.3, delay: 1.3 },
+    { left: '90%', bottom: '38%', width: '130px', height: '240px', duration: 3.6, delay: 0.2 },
   ];
 
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. CINEMATIC PURE SOUTH INDIAN CATERING FEAST HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
+      {/* 1. VIBRANT HIGH-ATTRACTION SOUTH INDIAN CATERING FEAST HERO */}
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#070E0B]">
         
-        {/* CINEMATIC SLOW KEN-BURNS ANIMATED PURE FOOD HERO BACKGROUND */}
+        {/* VIBRANT CINEMATIC KEN-BURNS ANIMATED FOOD FEAST BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.img 
             src="south_indian_pure_food_hero.jpg" 
@@ -56,10 +56,14 @@ export default function HomeTeaser({ setActivePage }) {
             animate={{ 
               scale: [1, 1.05, 1],
               x: [0, -12, 0],
-              filter: ["brightness(0.72) contrast(1.12)", "brightness(0.78) contrast(1.15)", "brightness(0.72) contrast(1.12)"]
+              filter: [
+                "brightness(0.90) contrast(1.18) saturate(1.12)", 
+                "brightness(0.95) contrast(1.20) saturate(1.15)", 
+                "brightness(0.90) contrast(1.18) saturate(1.12)"
+              ]
             }}
             transition={{ 
-              duration: 22, 
+              duration: 20, 
               repeat: Infinity, 
               repeatType: "mirror",
               ease: "easeInOut" 
@@ -67,22 +71,22 @@ export default function HomeTeaser({ setActivePage }) {
             className="w-full h-full object-cover object-right"
           />
 
-          {/* Left-Side Dark Gradient Mask for Crisp Readable Editorial Text */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1411]/95 via-[#0A1411]/75 to-transparent z-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1411] via-transparent to-[#0A1411]/40 z-0" />
+          {/* Precision Left-Side Dark Gradient Vignette for High Text Legibility & Vibrant Food Focus */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070E0B]/95 via-[#070E0B]/70 to-transparent z-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070E0B] via-transparent to-[#070E0B]/35 z-0" />
         </div>
 
-        {/* ♨️ REALISTIC RISING STEAM VAPOR PARTICLES OVER BRASS URULI CAULDRONS & HOT DOSA */}
+        {/* ♨️ GLOWING WARM RISING STEAM PARTICLES OVER BRASS URULI CAULDRONS & FEAST */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           {steamParticles.map((pt, idx) => (
             <motion.div
               key={idx}
               style={{ left: pt.left, bottom: pt.bottom, width: pt.width, height: pt.height }}
-              className="absolute rounded-full bg-gradient-to-t from-white/40 via-white/20 to-transparent filter blur-md sm:blur-lg"
+              className="absolute rounded-full bg-gradient-to-t from-amber-100/35 via-white/20 to-transparent filter blur-md sm:blur-lg"
               animate={{
                 y: [0, -220, -380],
                 x: [-15, 25, -15],
-                opacity: [0, 0.75, 0],
+                opacity: [0, 0.80, 0],
                 scale: [0.7, 1.6, 2.5],
               }}
               transition={{
@@ -93,6 +97,39 @@ export default function HomeTeaser({ setActivePage }) {
               }}
             />
           ))}
+        </div>
+
+        {/* 🌟 ATTRACTIVE FLOATING CULINARY FEATURE BADGES (RIGHT SIDE OVER GRAPHIC) */}
+        <div className="hidden lg:block absolute right-12 top-28 z-20 space-y-4 pointer-events-none">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="px-4 py-2.5 rounded-2xl bg-black/40 backdrop-blur-md border border-[#C5A059]/50 shadow-2xl flex items-center gap-3 text-white"
+          >
+            <div className="w-8 h-8 rounded-full bg-[#C5A059]/20 flex items-center justify-center text-[#C5A059]">
+              <Sparkles className="w-4 h-4 animate-pulse" />
+            </div>
+            <div>
+              <p className="text-xs font-serif font-bold text-[#C5A059]">100% Pure Fresh Ghee</p>
+              <p className="text-[10px] text-gray-300 font-sans">Farm-Fresh Spices & Ingredients</p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="px-4 py-2.5 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20 shadow-2xl flex items-center gap-3 text-white"
+          >
+            <div className="w-8 h-8 rounded-full bg-[#006B46]/30 flex items-center justify-center text-emerald-400">
+              <Flame className="w-4 h-4" />
+            </div>
+            <div>
+              <p className="text-xs font-serif font-bold text-white">Traditional 21-Item Feast</p>
+              <p className="text-[10px] text-gray-300 font-sans">Banana Leaf & Live Counters</p>
+            </div>
+          </motion.div>
         </div>
 
         {/* Left-Aligned Clean Editorial Typography & CTA */}
@@ -106,17 +143,17 @@ export default function HomeTeaser({ setActivePage }) {
               variants={heroContainerVariants}
             >
               <motion.div variants={heroItemVariants} className="inline-block">
-                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block">
+                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block drop-shadow-sm">
                   ~ FLAVOURS OF TRADITION ~
                 </span>
               </motion.div>
 
-              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12]">
+              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12] drop-shadow-md">
                 Royal Feasts & Authentic <br />
                 <span className="font-serif italic text-[#C5A059] font-normal">South Indian Hospitality.</span>
               </motion.h1>
 
-              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-200 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide">
+              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-200 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide drop-shadow-sm">
                 Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
               </motion.p>
 
@@ -145,7 +182,7 @@ export default function HomeTeaser({ setActivePage }) {
                 <motion.div 
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-2 cursor-pointer text-gray-400 hover:text-[#C5A059] transition-colors"
+                  className="inline-flex items-center gap-2 cursor-pointer text-gray-300 hover:text-[#C5A059] transition-colors"
                   onClick={() => {
                     window.scrollTo({ top: window.innerHeight * 0.75, behavior: 'smooth' });
                   }}
