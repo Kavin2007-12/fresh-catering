@@ -32,33 +32,33 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  // Natural rising steam motion particles
+  // Realistic rising steam vapor particles over brass uruli cauldron & curry pouring
   const steamParticles = [
-    { left: '60%', bottom: '25%', width: '140px', height: '240px', duration: 4.2, delay: 0 },
-    { left: '72%', bottom: '20%', width: '160px', height: '280px', duration: 4.8, delay: 1.0 },
-    { left: '84%', bottom: '22%', width: '120px', height: '220px', duration: 3.9, delay: 0.5 },
+    { left: '62%', bottom: '30%', width: '150px', height: '260px', duration: 4.0, delay: 0 },
+    { left: '74%', bottom: '25%', width: '180px', height: '300px', duration: 4.5, delay: 0.8 },
+    { left: '86%', bottom: '28%', width: '140px', height: '240px', duration: 3.8, delay: 0.4 },
   ];
 
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. CINEMATIC LUXURY SOUTH INDIAN CATERING HERO WITH SEAMLESS MOTION & HEAT VAPOR */}
+      {/* 1. CINEMATIC LUXURY SOUTH INDIAN CATERING HERO WITH REALISTIC COOKING, CURRY POURING, & RISING STEAM */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
         
-        {/* CINEMATIC SLOW KEN-BURNS ANIMATED BACKGROUND (RIGHT-CONCENTRATED COMPOSITION) */}
+        {/* CINEMATIC SLOW PANNING/ZOOM ANIMATED BACKGROUND (RIGHT-CONCENTRATED COMPOSITION) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.img 
-            src="south_indian_catering_hero.jpg" 
-            alt="Luxury South Indian Catering Chef Preparing Banana Leaf Feast" 
+            src="south_indian_catering_cinematic_hero.jpg" 
+            alt="Luxury South Indian Chef Cooking Curry and Serving Banana Leaf Feast" 
             decoding="async"
             loading="eager"
             animate={{ 
-              scale: [1, 1.06, 1],
-              x: [0, -12, 0],
-              filter: ["brightness(0.55) contrast(1.15)", "brightness(0.60) contrast(1.18)", "brightness(0.55) contrast(1.15)"]
+              scale: [1, 1.05, 1],
+              x: [0, -15, 0],
+              filter: ["brightness(0.65) contrast(1.12)", "brightness(0.70) contrast(1.15)", "brightness(0.65) contrast(1.12)"]
             }}
             transition={{ 
-              duration: 20, 
+              duration: 22, 
               repeat: Infinity, 
               repeatType: "mirror",
               ease: "easeInOut" 
@@ -71,18 +71,18 @@ export default function HomeTeaser({ setActivePage }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1411] via-transparent to-[#0A1411]/40 z-0" />
         </div>
 
-        {/* ♨️ NATURAL STEAM RISING FROM HOT SAMBAR & LEAF FEAST */}
+        {/* ♨️ REALISTIC RISING STEAM VAPOR PARTICLES OVER HOT CURRY & BRASS URULI */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           {steamParticles.map((pt, idx) => (
             <motion.div
               key={idx}
               style={{ left: pt.left, bottom: pt.bottom, width: pt.width, height: pt.height }}
-              className="absolute rounded-full bg-gradient-to-t from-white/35 via-white/20 to-transparent filter blur-md sm:blur-lg"
+              className="absolute rounded-full bg-gradient-to-t from-white/40 via-white/20 to-transparent filter blur-md sm:blur-lg"
               animate={{
-                y: [0, -200, -360],
+                y: [0, -220, -380],
                 x: [-15, 25, -15],
-                opacity: [0, 0.7, 0],
-                scale: [0.7, 1.5, 2.4],
+                opacity: [0, 0.75, 0],
+                scale: [0.7, 1.6, 2.5],
               }}
               transition={{
                 duration: pt.duration,
