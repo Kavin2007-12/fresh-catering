@@ -37,13 +37,9 @@ export default function HomeTeaser({ setActivePage }) {
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. HERO SECTION: PICTURE AT TOP (WHITE BACKGROUND CARD) + TEXT AT BOTTOM */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
+      {/* 1. HERO SECTION: 100% PURE WHITE ADAPTIVE BACKGROUND CANVAS */}
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-white border-b border-[#006B46]/10">
         
-        {/* Ambient Dark Emerald Background Lighting */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0A1411] via-[#0D1B17] to-[#0A1411]" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#006B46]/15 rounded-full filter blur-3xl pointer-events-none" />
-
         <div className="max-w-4xl mx-auto px-6 lg:px-8 w-full z-10">
           <motion.div 
             className="flex flex-col items-center text-center space-y-8"
@@ -52,9 +48,9 @@ export default function HomeTeaser({ setActivePage }) {
             variants={heroContainerVariants}
           >
             
-            {/* 🖼️ TOP ELEMENT: PICTURE ONLY ON CLEAN WHITE BACKGROUND CARD */}
+            {/* 🖼️ TOP ELEMENT: ADAPTIVE PICTURE ON PURE WHITE BACKGROUND */}
             <motion.div variants={heroItemVariants} className="w-full max-w-2xl">
-              <div className="relative rounded-3xl p-3 sm:p-5 bg-white shadow-2xl border-4 border-white overflow-hidden">
+              <div className="relative overflow-hidden bg-white p-2 sm:p-4 rounded-3xl">
                 <motion.img 
                   src="hero_illustration.jpg" 
                   alt="South Indian Traditional Catering Feast Artwork Illustration" 
@@ -62,26 +58,26 @@ export default function HomeTeaser({ setActivePage }) {
                   loading="eager"
                   whileHover={{ scale: 1.01 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full h-auto max-h-[440px] sm:max-h-[500px] object-contain rounded-2xl bg-white"
+                  className="w-full h-auto max-h-[460px] sm:max-h-[520px] object-contain rounded-2xl mx-auto bg-white"
                 />
               </div>
             </motion.div>
 
-            {/* 📝 BOTTOM ELEMENT: TEXT & EXPLORE MENUS BUTTON DISPLAYED BELOW THE PICTURE */}
+            {/* 📝 BOTTOM ELEMENT: ADAPTIVE CRISP TYPOGRAPHY & EXPLORE MENUS BUTTON */}
             <div className="space-y-5 max-w-2xl mx-auto">
               
               <motion.div variants={heroItemVariants} className="inline-block">
-                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block">
+                <span className="font-title text-xs tracking-[0.25em] text-[#006B46] uppercase font-bold block">
                   ~ FLAVOURS OF TRADITION ~
                 </span>
               </motion.div>
 
-              <motion.h1 variants={heroItemVariants} className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light text-white tracking-tight leading-[1.14]">
+              <motion.h1 variants={heroItemVariants} className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#111827] tracking-tight leading-[1.14]">
                 Royal Feasts & Authentic <br />
-                <span className="font-serif italic text-[#C5A059] font-normal">South Indian Hospitality.</span>
+                <span className="font-serif italic text-[#006B46] font-normal">South Indian Hospitality.</span>
               </motion.h1>
 
-              <motion.p variants={heroItemVariants} className="font-sans text-sm sm:text-base text-gray-200 font-light leading-relaxed tracking-wide max-w-xl mx-auto">
+              <motion.p variants={heroItemVariants} className="font-sans text-sm sm:text-base text-[#374151] font-light leading-relaxed tracking-wide max-w-xl mx-auto">
                 Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
               </motion.p>
 
@@ -91,7 +87,7 @@ export default function HomeTeaser({ setActivePage }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('menus')}
-                  className="btn-editorial-solid px-10 py-4 rounded-full min-w-[210px] text-xs shadow-2xl"
+                  className="btn-editorial-solid px-10 py-4 rounded-full min-w-[210px] text-xs shadow-lg bg-[#006B46] text-white hover:bg-[#044C33]"
                 >
                   EXPLORE MENUS
                 </motion.button>
@@ -102,7 +98,7 @@ export default function HomeTeaser({ setActivePage }) {
                 <motion.div 
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-2 cursor-pointer text-gray-300 hover:text-[#C5A059] transition-colors"
+                  className="inline-flex items-center gap-2 cursor-pointer text-gray-500 hover:text-[#006B46] transition-colors"
                   onClick={() => {
                     window.scrollTo({ top: window.innerHeight * 0.75, behavior: 'smooth' });
                   }}
@@ -110,7 +106,7 @@ export default function HomeTeaser({ setActivePage }) {
                   <span className="text-[10px] font-title tracking-[0.25em] uppercase font-bold">
                     SCROLL TO EXPLORE
                   </span>
-                  <ChevronDown className="w-4 h-4 text-[#C5A059]" />
+                  <ChevronDown className="w-4 h-4 text-[#006B46]" />
                 </motion.div>
               </motion.div>
 
