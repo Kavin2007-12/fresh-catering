@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Award } from 'lucide-react';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -33,20 +33,20 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  // Steam particle animation data
+  // Steam particle animation data with higher opacity and distinct positions
   const steamParticles = [
-    { left: '20%', duration: 4.5, delay: 0 },
-    { left: '35%', duration: 5.2, delay: 1.2 },
-    { left: '50%', duration: 4.8, delay: 0.5 },
-    { left: '65%', duration: 5.5, delay: 1.8 },
-    { left: '80%', duration: 4.2, delay: 0.8 },
+    { left: '15%', bottom: '20%', width: '120px', height: '220px', duration: 4.0, delay: 0 },
+    { left: '30%', bottom: '15%', width: '140px', height: '260px', duration: 4.8, delay: 1.0 },
+    { left: '48%', bottom: '25%', width: '160px', height: '280px', duration: 4.2, delay: 0.4 },
+    { left: '68%', bottom: '18%', width: '130px', height: '240px', duration: 5.0, delay: 1.5 },
+    { left: '82%', bottom: '22%', width: '110px', height: '210px', duration: 3.8, delay: 0.7 },
   ];
 
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. CINEMATIC HERO BANNER WITH ANIMATED STEAM & SMOKE PARTICLES */}
-      <section className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
+      {/* 1. CINEMATIC HERO BANNER WITH HIGH-CONTRAST ANIMATED STEAM & ROTATING SEAL */}
+      <section className="relative min-h-[88vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
         
         {/* Animated Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -56,7 +56,7 @@ export default function HomeTeaser({ setActivePage }) {
             decoding="async"
             loading="eager"
             animate={{ 
-              scale: [1, 1.08, 1],
+              scale: [1, 1.09, 1],
               filter: ["brightness(0.38) contrast(1.15)", "brightness(0.42) contrast(1.18)", "brightness(0.38) contrast(1.15)"]
             }}
             transition={{ 
@@ -70,18 +70,18 @@ export default function HomeTeaser({ setActivePage }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1411] via-[#0A1411]/50 to-[#0A1411]/70" />
         </div>
 
-        {/* ♨️ ANIMATED HOT STEAM & COOKING SMOKE EFFECT OVER HERO DISHES */}
+        {/* ♨️ HIGH-CONTRAST ANIMATED HOT STEAM & COOKING SMOKE CLOUDS */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           {steamParticles.map((pt, idx) => (
             <motion.div
               key={idx}
-              style={{ left: pt.left, bottom: '15%' }}
-              className="absolute w-24 h-48 rounded-full bg-gradient-to-t from-white/20 via-white/10 to-transparent filter blur-xl"
+              style={{ left: pt.left, bottom: pt.bottom, width: pt.width, height: pt.height }}
+              className="absolute rounded-full bg-gradient-to-t from-white/35 via-white/20 to-transparent filter blur-md sm:blur-lg"
               animate={{
-                y: [0, -180, -320],
-                x: [-15, 20, -15],
-                opacity: [0, 0.45, 0],
-                scale: [0.8, 1.5, 2.2],
+                y: [0, -220, -380],
+                x: [-20, 30, -20],
+                opacity: [0, 0.65, 0],
+                scale: [0.7, 1.6, 2.5],
               }}
               transition={{
                 duration: pt.duration,
@@ -91,6 +91,27 @@ export default function HomeTeaser({ setActivePage }) {
               }}
             />
           ))}
+        </div>
+
+        {/* 🎖️ ROTATING CIRCULAR ROYAL TRADITION SEAL */}
+        <div className="hidden md:block absolute top-28 right-12 z-20 pointer-events-none">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+            className="w-28 h-28 rounded-full border border-[#C5A059]/40 bg-[#0A1411]/60 backdrop-blur-md flex items-center justify-center p-2 shadow-2xl relative"
+          >
+            <svg viewBox="0 0 100 100" className="w-full h-full text-[#C5A059] fill-current">
+              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+              <text className="text-[9.5px] font-title font-bold tracking-[0.18em] uppercase">
+                <textPath href="#circlePath" startOffset="0%">
+                  ★ 100% PURE GHEE ★ TRADITIONAL SOUTH INDIAN FEAST ★
+                </textPath>
+              </text>
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center text-[#C5A059]">
+              <Award className="w-6 h-6" />
+            </div>
+          </motion.div>
         </div>
 
         {/* Staggered Text & CTA Entrance */}
@@ -129,7 +150,7 @@ export default function HomeTeaser({ setActivePage }) {
           {/* Animated Bouncing Scroll Indicator */}
           <motion.div variants={heroItemVariants} className="pt-6">
             <motion.div 
-              animate={{ y: [0, 6, 0] }}
+              animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
               className="inline-flex flex-col items-center gap-1.5 cursor-pointer text-gray-400 hover:text-[#C5A059] transition-colors"
               onClick={() => {
