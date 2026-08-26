@@ -13,74 +13,92 @@ export default function HomeTeaser({ setActivePage }) {
   };
 
   const heroContainerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
         staggerChildren: 0.15,
         delayChildren: 0.1,
+        duration: 0.7
       }
     }
   };
 
   const heroItemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } 
     }
   };
 
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. LUXURY SOUTH INDIAN CATERING HERO WITH ILLUSTRATION ARTWORK */}
-      <section className="relative min-h-[88vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
+      {/* 1. HERO SECTION: PICTURE AT TOP (WHITE BACKGROUND CARD) + TEXT AT BOTTOM */}
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
         
-        {/* Subtle Ambient Background Lighting */}
+        {/* Ambient Dark Emerald Background Lighting */}
         <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#0A1411] via-[#0D1B17] to-[#0A1411]" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#006B46]/20 rounded-full filter blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#006B46]/15 rounded-full filter blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 w-full z-10">
+          <motion.div 
+            className="flex flex-col items-center text-center space-y-8"
+            initial="hidden"
+            animate="visible"
+            variants={heroContainerVariants}
+          >
             
-            {/* Left Column: Clean Typography & Single EXPLORE MENUS Button */}
-            <motion.div 
-              className="lg:col-span-6 space-y-6 text-center lg:text-left"
-              initial="hidden"
-              animate="visible"
-              variants={heroContainerVariants}
-            >
+            {/* 🖼️ TOP ELEMENT: PICTURE ONLY ON CLEAN WHITE BACKGROUND CARD */}
+            <motion.div variants={heroItemVariants} className="w-full max-w-2xl">
+              <div className="relative rounded-3xl p-3 sm:p-5 bg-white shadow-2xl border-4 border-white overflow-hidden">
+                <motion.img 
+                  src="hero_illustration.jpg" 
+                  alt="South Indian Traditional Catering Feast Artwork Illustration" 
+                  decoding="async"
+                  loading="eager"
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full h-auto max-h-[440px] sm:max-h-[500px] object-contain rounded-2xl bg-white"
+                />
+              </div>
+            </motion.div>
+
+            {/* 📝 BOTTOM ELEMENT: TEXT & EXPLORE MENUS BUTTON DISPLAYED BELOW THE PICTURE */}
+            <div className="space-y-5 max-w-2xl mx-auto">
+              
               <motion.div variants={heroItemVariants} className="inline-block">
                 <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block">
                   ~ FLAVOURS OF TRADITION ~
                 </span>
               </motion.div>
 
-              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-6xl font-serif font-light text-white tracking-tight leading-[1.12]">
+              <motion.h1 variants={heroItemVariants} className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light text-white tracking-tight leading-[1.14]">
                 Royal Feasts & Authentic <br />
                 <span className="font-serif italic text-[#C5A059] font-normal">South Indian Hospitality.</span>
               </motion.h1>
 
-              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-200 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide">
+              <motion.p variants={heroItemVariants} className="font-sans text-sm sm:text-base text-gray-200 font-light leading-relaxed tracking-wide max-w-xl mx-auto">
                 Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
               </motion.p>
 
-              {/* Single EXPLORE MENUS Button (NO Request VIP Proposal) */}
-              <motion.div variants={heroItemVariants} className="pt-2 flex justify-center lg:justify-start">
+              {/* SINGLE EXPLORE MENUS BUTTON BELOW THE TEXT */}
+              <motion.div variants={heroItemVariants} className="pt-2 flex justify-center">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('menus')}
-                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[210px] text-xs shadow-2xl"
+                  className="btn-editorial-solid px-10 py-4 rounded-full min-w-[210px] text-xs shadow-2xl"
                 >
                   EXPLORE MENUS
                 </motion.button>
               </motion.div>
 
               {/* Scroll Indicator */}
-              <motion.div variants={heroItemVariants} className="pt-6 hidden sm:block">
+              <motion.div variants={heroItemVariants} className="pt-4 hidden sm:block">
                 <motion.div 
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -95,31 +113,10 @@ export default function HomeTeaser({ setActivePage }) {
                   <ChevronDown className="w-4 h-4 text-[#C5A059]" />
                 </motion.div>
               </motion.div>
-            </motion.div>
 
-            {/* Right Column: Clean Framed User Illustration Artwork (NO Unwanted Overlay Text) */}
-            <motion.div 
-              className="lg:col-span-6 z-10 flex items-center justify-center"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="relative w-full max-w-lg rounded-3xl p-3 sm:p-4 bg-[#070E0B] border-2 border-[#C5A059]/40 shadow-2xl">
-                <div className="relative overflow-hidden rounded-2xl bg-white">
-                  <motion.img 
-                    src="hero_illustration.jpg" 
-                    alt="South Indian Traditional Catering Feast Artwork Illustration" 
-                    decoding="async"
-                    loading="eager"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-full h-[360px] sm:h-[460px] object-cover object-center"
-                  />
-                </div>
-              </div>
-            </motion.div>
+            </div>
 
-          </div>
+          </motion.div>
         </div>
       </section>
 
