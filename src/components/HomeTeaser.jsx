@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Sparkles, Flame } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -43,7 +43,7 @@ export default function HomeTeaser({ setActivePage }) {
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. VIBRANT HIGH-ATTRACTION SOUTH INDIAN CATERING FEAST HERO */}
+      {/* 1. VIBRANT HIGH-ATTRACTION PURE SOUTH INDIAN CATERING FEAST HERO (COMPLETELY TEXT-FREE OVER ANIMATIONS) */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#070E0B]">
         
         {/* VIBRANT CINEMATIC KEN-BURNS ANIMATED FOOD FEAST BACKGROUND */}
@@ -97,39 +97,6 @@ export default function HomeTeaser({ setActivePage }) {
               }}
             />
           ))}
-        </div>
-
-        {/* 🌟 ATTRACTIVE FLOATING CULINARY FEATURE BADGES (RIGHT SIDE OVER GRAPHIC) */}
-        <div className="hidden lg:block absolute right-12 top-28 z-20 space-y-4 pointer-events-none">
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="px-4 py-2.5 rounded-2xl bg-black/40 backdrop-blur-md border border-[#C5A059]/50 shadow-2xl flex items-center gap-3 text-white"
-          >
-            <div className="w-8 h-8 rounded-full bg-[#C5A059]/20 flex items-center justify-center text-[#C5A059]">
-              <Sparkles className="w-4 h-4 animate-pulse" />
-            </div>
-            <div>
-              <p className="text-xs font-serif font-bold text-[#C5A059]">100% Pure Fresh Ghee</p>
-              <p className="text-[10px] text-gray-300 font-sans">Farm-Fresh Spices & Ingredients</p>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="px-4 py-2.5 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20 shadow-2xl flex items-center gap-3 text-white"
-          >
-            <div className="w-8 h-8 rounded-full bg-[#006B46]/30 flex items-center justify-center text-emerald-400">
-              <Flame className="w-4 h-4" />
-            </div>
-            <div>
-              <p className="text-xs font-serif font-bold text-white">Traditional 21-Item Feast</p>
-              <p className="text-[10px] text-gray-300 font-sans">Banana Leaf & Live Counters</p>
-            </div>
-          </motion.div>
         </div>
 
         {/* Left-Aligned Clean Editorial Typography & CTA */}
