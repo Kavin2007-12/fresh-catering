@@ -12,6 +12,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    font-size: 16px;
   }
 
   body {
@@ -47,7 +48,7 @@
   color: #FFFFFF;
   font-family: 'Cinzel', serif;
   letter-spacing: 0.18em;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 14px rgba(0, 107, 70, 0.25);
@@ -65,7 +66,7 @@
   border: 1.5px solid #006B46;
   font-family: 'Cinzel', serif;
   letter-spacing: 0.18em;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

@@ -38,7 +38,7 @@ export default function HomeTeaser({ setActivePage }) {
         </div>
 
         <motion.div 
-          className="relative max-w-4xl mx-auto px-6 text-center z-10 space-y-5"
+          className="relative max-w-4xl mx-auto px-6 text-center z-10 space-y-6"
           initial="hidden"
           animate="visible"
           variants={{
@@ -47,7 +47,7 @@ export default function HomeTeaser({ setActivePage }) {
           }}
         >
           <div className="inline-block">
-            <span className="font-title text-[9px] tracking-[0.25em] text-[#C5A059] uppercase font-bold block">
+            <span className="font-title text-[10px] sm:text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block">
               ~ FLAVOURS OF TRADITION ~
             </span>
           </div>
@@ -57,7 +57,7 @@ export default function HomeTeaser({ setActivePage }) {
             <span className="font-serif italic text-[#C5A059] font-normal">South Indian Culinary Hospitality.</span>
           </h1>
 
-          <p className="font-sans text-xs sm:text-sm text-gray-200 max-w-lg mx-auto font-light leading-relaxed tracking-wide">
+          <p className="font-sans text-sm sm:text-base text-gray-200 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
             Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
           </p>
 
@@ -66,14 +66,14 @@ export default function HomeTeaser({ setActivePage }) {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handlePageChange('menus')}
-              className="btn-editorial-solid px-8 py-3 rounded-full min-w-[180px] text-[10px]"
+              className="btn-editorial-solid px-8 py-3.5 rounded-full min-w-[190px] text-xs"
             >
               EXPLORE MENUS
             </motion.button>
           </div>
 
           <div className="pt-6">
-            <span className="text-[9px] font-title tracking-[0.25em] text-gray-400 uppercase inline-block">
+            <span className="text-[10px] font-title tracking-[0.25em] text-gray-400 uppercase inline-block font-semibold">
               SCROLL TO EXPLORE ↓
             </span>
           </div>
@@ -81,27 +81,27 @@ export default function HomeTeaser({ setActivePage }) {
       </section>
 
       {/* 2. INTEGRATED WARM LINEN & GOLD METRIC ROW */}
-      <section className="py-5 bg-[#F4F2ED] border-b border-[#006B46]/15">
+      <section className="py-6 bg-[#F4F2ED] border-b border-[#006B46]/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div className="border-r border-[#006B46]/10 last:border-none px-2">
-              <p className="text-lg sm:text-xl font-serif font-bold text-[#006B46]">500+</p>
-              <p className="text-[9px] font-title tracking-[0.2em] uppercase text-[#374151] font-semibold">CELEBRATIONS CATERED</p>
+              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">500+</p>
+              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">CELEBRATIONS CATERED</p>
             </div>
 
             <div className="border-r border-[#006B46]/10 last:border-none px-2">
-              <p className="text-lg sm:text-xl font-serif font-bold text-[#006B46]">100%</p>
-              <p className="text-[9px] font-title tracking-[0.2em] uppercase text-[#374151] font-semibold">PURE FRESH GHEE</p>
+              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">100%</p>
+              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">PURE FRESH GHEE</p>
             </div>
 
             <div className="border-r border-[#006B46]/10 last:border-none px-2">
-              <p className="text-lg sm:text-xl font-serif font-bold text-[#006B46]">50,000+</p>
-              <p className="text-[9px] font-title tracking-[0.2em] uppercase text-[#374151] font-semibold">HAPPY GUESTS SERVED</p>
+              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">50,000+</p>
+              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">HAPPY GUESTS SERVED</p>
             </div>
 
             <div className="px-2">
-              <p className="text-lg sm:text-xl font-serif font-bold text-[#006B46]">1 KITCHEN</p>
-              <p className="text-[9px] font-title tracking-[0.2em] uppercase text-[#374151] font-semibold">PURE HYGIENE GUARANTEE</p>
+              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">1 KITCHEN</p>
+              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">PURE HYGIENE GUARANTEE</p>
             </div>
           </div>
         </div>
@@ -109,62 +109,62 @@ export default function HomeTeaser({ setActivePage }) {
 
       {/* 3. COMPACT ABOUT US STORY SECTION */}
       <section className="py-16 bg-[#F9F8F6]">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-30px" }}
             variants={subtleFade}
-            className="editorial-card p-6 sm:p-10 rounded-2xl text-center space-y-4 bg-white shadow-sm"
+            className="editorial-card p-8 sm:p-12 rounded-2xl text-center space-y-5 bg-white shadow-sm"
           >
             <div className="inline-block">
-              <span className="font-title text-[9px] tracking-[0.25em] text-[#006B46] uppercase font-bold block">
+              <span className="font-title text-[10px] tracking-[0.25em] text-[#006B46] uppercase font-bold block">
                 ABOUT FRESH CATERING
               </span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#111827] leading-snug max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#111827] leading-snug max-w-2xl mx-auto">
               "Founded on the belief that great feasts are remembered by the <span className="font-serif italic text-[#006B46]">warmth of hospitality</span> and <span className="font-serif italic text-[#006B46]">purity of taste.</span>"
             </h2>
 
-            <p className="font-sans text-xs text-[#374151] font-light leading-relaxed max-w-xl mx-auto">
+            <p className="font-sans text-sm text-[#374151] font-light leading-relaxed max-w-2xl mx-auto">
               Fresh Catering brings together decades of culinary heritage, time-honored South Indian family recipes, and uncompromised standards of hygiene for weddings, housewarmings, and celebrations.
             </p>
 
             <div className="pt-2">
               <button
                 onClick={() => handlePageChange('about')}
-                className="font-title text-[10px] tracking-[0.2em] text-[#006B46] hover:text-[#044C33] uppercase inline-flex items-center gap-1.5 font-bold group"
+                className="font-title text-[11px] tracking-[0.2em] text-[#006B46] hover:text-[#044C33] uppercase inline-flex items-center gap-2 font-bold group"
               >
                 <span>DISCOVER OUR STORY</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 4. SIGNATURE FEAST EXPERIENCE (NAVIGATES TO WHAT WE DO / SERVICES PAGE) */}
+      {/* 4. SIGNATURE FEAST EXPERIENCE */}
       <section className="py-20 bg-[#F4F2ED] border-y border-[#006B46]/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            <div className="lg:col-span-6 space-y-4">
-              <span className="font-title text-[9px] tracking-[0.25em] text-[#006B46] uppercase font-bold block">
+            <div className="lg:col-span-6 space-y-5">
+              <span className="font-title text-[10px] tracking-[0.25em] text-[#006B46] uppercase font-bold block">
                 THE BANANA LEAF EXPERIENCE
               </span>
               <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#111827] leading-tight">
                 Authentic 21-Item Feast: <br />
                 <span className="font-serif italic text-[#006B46]">Preserved in royal traditional style.</span>
               </h2>
-              <p className="text-xs text-[#374151] font-light leading-relaxed">
+              <p className="text-sm text-[#374151] font-light leading-relaxed">
                 From fragrant Elaneer Payasam and hot ghee parottas to aromatic Chettinad biryani spreads and live dessert counters, our master chefs deliver authentic taste served with trained butler hospitality.
               </p>
 
               <div className="pt-1">
                 <button
                   onClick={() => handlePageChange('services')}
-                  className="btn-editorial-solid px-7 py-3 rounded-full text-[10px]"
+                  className="btn-editorial-solid px-8 py-3.5 rounded-full text-xs"
                 >
                   EXPLORE OUR SERVICES
                 </button>
@@ -188,8 +188,8 @@ export default function HomeTeaser({ setActivePage }) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 p-4 bg-white/95 backdrop-blur-md rounded-lg border border-[#006B46]/20 shadow-md">
-                  <p className="font-serif text-base font-bold text-[#111827]">Traditional 21-Item Leaf Spread</p>
-                  <p className="text-xs text-[#374151] font-light">100% Farm-Fresh Ingredients, Live Counters & Royal Butler Service</p>
+                  <p className="font-serif text-lg font-bold text-[#111827]">Traditional 21-Item Leaf Spread</p>
+                  <p className="text-xs sm:text-sm text-[#374151] font-light">100% Farm-Fresh Ingredients, Live Counters & Royal Butler Service</p>
                 </div>
               </div>
             </motion.div>
@@ -203,7 +203,7 @@ export default function HomeTeaser({ setActivePage }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
-            <span className="font-title text-[9px] tracking-[0.25em] text-[#006B46] uppercase block font-bold">
+            <span className="font-title text-[10px] tracking-[0.25em] text-[#006B46] uppercase block font-bold">
               OUR PROCESS
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#111827]">
@@ -231,7 +231,7 @@ export default function HomeTeaser({ setActivePage }) {
                   </div>
 
                   <h4 className="font-serif text-lg font-bold text-[#111827] pt-1">{step.title}</h4>
-                  <p className="text-xs text-[#374151] font-light leading-relaxed max-w-[180px]">{step.desc}</p>
+                  <p className="text-xs sm:text-sm text-[#374151] font-light leading-relaxed max-w-[200px]">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -243,18 +243,18 @@ export default function HomeTeaser({ setActivePage }) {
 
       {/* 6. QUIET INQUIRY CLOSING CTA */}
       <section className="py-20 bg-[#F4F2ED] border-t border-[#006B46]/10 text-center">
-        <div className="max-w-2xl mx-auto px-6 space-y-3">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#111827]">
+        <div className="max-w-2xl mx-auto px-6 space-y-4">
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#111827]">
             Planning a Wedding or Celebration?
           </h2>
-          <p className="text-xs text-[#374151] font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-[#374151] font-light leading-relaxed">
             Share your event date and estimated guest count to receive a personalized menu proposal.
           </p>
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handlePageChange('enquire')}
-            className="btn-editorial-solid px-8 py-3.5 rounded-full text-[10px]"
+            className="btn-editorial-solid px-9 py-4 rounded-full text-xs"
           >
             REQUEST A CUSTOM QUOTE
           </motion.button>

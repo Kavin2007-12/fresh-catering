@@ -60,20 +60,20 @@ Please provide me with a customized menu quote!`;
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
-          <span className="font-title text-[9px] tracking-[0.25em] text-[#006B46] uppercase block font-bold">
+          <span className="font-title text-[10px] tracking-[0.25em] text-[#006B46] uppercase block font-bold">
             INSTANT QUOTE ENQUIRY
           </span>
           <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#111827]">
             Request a Bespoke <span className="text-[#006B46] font-serif italic">Proposal</span>
           </h2>
-          <p className="text-xs text-[#374151] font-light leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#374151] font-light leading-relaxed">
             Fill in your event details below to receive a custom quote sent directly to your WhatsApp.
           </p>
         </div>
 
         {/* BEFORE FORM: DIRECT QUICK CONNECT BUTTONS (CALL US & WHATSAPP) */}
-        <div className="mb-8 p-5 rounded-2xl bg-white border border-[#006B46]/15 shadow-sm text-center space-y-3">
-          <span className="font-title text-[9px] tracking-widest text-gray-400 uppercase font-bold block">
+        <div className="mb-8 p-6 rounded-2xl bg-white border border-[#006B46]/15 shadow-sm text-center space-y-3">
+          <span className="font-title text-[10px] tracking-widest text-gray-400 uppercase font-bold block">
             NEED AN IMMEDIATE RESPONSE?
           </span>
 
@@ -81,7 +81,7 @@ Please provide me with a customized menu quote!`;
             {/* CALL US BUTTON */}
             <a
               href={`tel:${siteData.brand.phone.replace(/\s+/g, '')}`}
-              className="btn-editorial-outline px-6 py-3 rounded-full flex items-center justify-center gap-2 text-[10px] w-full sm:w-auto font-bold"
+              className="btn-editorial-outline px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-xs w-full sm:w-auto font-bold"
             >
               <Phone className="w-4 h-4 text-[#006B46]" />
               <span>CALL US: {siteData.brand.phone}</span>
@@ -92,7 +92,7 @@ Please provide me with a customized menu quote!`;
               href={`https://wa.me/${siteData.brand.whatsapp}?text=Hi%20Fresh%20Catering,%20I%20would%20like%20to%20enquire%20about%20catering%20packages.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-editorial-solid px-6 py-3 rounded-full flex items-center justify-center gap-2 text-[10px] w-full sm:w-auto font-bold"
+              className="btn-editorial-solid px-7 py-3.5 rounded-full flex items-center justify-center gap-2 text-xs w-full sm:w-auto font-bold"
             >
               <MessageCircle className="w-4 h-4 fill-white" />
               <span>CHAT ON WHATSAPP</span>
@@ -108,10 +108,10 @@ Please provide me with a customized menu quote!`;
                 <CheckCircle className="w-8 h-8" />
               </div>
               <h3 className="font-serif text-2xl font-bold text-[#111827]">Connecting to WhatsApp...</h3>
-              <p className="text-xs text-[#374151] font-light">Opening your pre-filled inquiry details.</p>
+              <p className="text-sm text-[#374151] font-light">Opening your pre-filled inquiry details.</p>
               <button
                 onClick={() => setSubmitted(false)}
-                className="font-title text-[10px] tracking-widest text-[#006B46] hover:underline pt-4 block mx-auto font-bold uppercase"
+                className="font-title text-xs tracking-widest text-[#006B46] hover:underline pt-4 block mx-auto font-bold uppercase"
               >
                 ← Edit Form Details
               </button>
@@ -122,8 +122,8 @@ Please provide me with a customized menu quote!`;
               {/* Row 1: Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
-                    <User className="w-3.5 h-3.5 text-[#006B46]" />
+                  <label className="text-xs font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
+                    <User className="w-4 h-4 text-[#006B46]" />
                     <span>YOUR NAME *</span>
                   </label>
                   <input
@@ -133,13 +133,13 @@ Please provide me with a customized menu quote!`;
                     placeholder="Enter your full name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3 text-xs text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
+                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3.5 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-[#006B46]" />
+                  <label className="text-xs font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
+                    <Phone className="w-4 h-4 text-[#006B46]" />
                     <span>MOBILE NUMBER *</span>
                   </label>
                   <input
@@ -149,7 +149,7 @@ Please provide me with a customized menu quote!`;
                     placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3 text-xs text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
+                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3.5 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
                   />
                 </div>
               </div>
@@ -157,8 +157,8 @@ Please provide me with a customized menu quote!`;
               {/* Row 2: Event Date & Event Type */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#006B46]" />
+                  <label className="text-xs font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
+                    <Calendar className="w-4 h-4 text-[#006B46]" />
                     <span>EVENT DATE</span>
                   </label>
                   <input
@@ -166,20 +166,20 @@ Please provide me with a customized menu quote!`;
                     name="eventDate"
                     value={formData.eventDate}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3 text-xs text-[#111827] focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
+                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3.5 text-sm text-[#111827] focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
-                    <FileText className="w-3.5 h-3.5 text-[#006B46]" />
+                  <label className="text-xs font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
+                    <FileText className="w-4 h-4 text-[#006B46]" />
                     <span>EVENT TYPE</span>
                   </label>
                   <select
                     name="eventType"
                     value={formData.eventType}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3 text-xs text-[#111827] focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm cursor-pointer"
+                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3.5 text-sm text-[#111827] focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm cursor-pointer"
                   >
                     {eventTypes.map((type, idx) => (
                       <option key={idx} value={type} className="bg-white text-[#111827]">
@@ -193,8 +193,8 @@ Please provide me with a customized menu quote!`;
               {/* Row 3: Manual Guest Count Input & Venue Location */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5 text-[#006B46]" />
+                  <label className="text-xs font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
+                    <Users className="w-4 h-4 text-[#006B46]" />
                     <span>ESTIMATED GUESTS (MANUAL) *</span>
                   </label>
                   <input
@@ -205,13 +205,13 @@ Please provide me with a customized menu quote!`;
                     placeholder="Enter guest count (e.g. 150, 500)"
                     value={formData.guests}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3 text-xs text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
+                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3.5 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#006B46]" />
+                  <label className="text-xs font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#006B46]" />
                     <span>VENUE LOCATION / CITY</span>
                   </label>
                   <input
@@ -220,15 +220,15 @@ Please provide me with a customized menu quote!`;
                     placeholder="e.g. Coimbatore / Chennai / Madurai"
                     value={formData.venue}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3 text-xs text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
+                    className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3.5 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm"
                   />
                 </div>
               </div>
 
               {/* Row 4: Notes */}
               <div className="space-y-2">
-                <label className="text-[10px] font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
-                  <FileText className="w-3.5 h-3.5 text-[#006B46]" />
+                <label className="text-xs font-title font-bold text-[#006B46] tracking-widest uppercase flex items-center gap-1.5">
+                  <FileText className="w-4 h-4 text-[#006B46]" />
                   <span>SPECIFIC REQUIREMENTS & NOTES</span>
                 </label>
                 <textarea
@@ -237,14 +237,14 @@ Please provide me with a customized menu quote!`;
                   placeholder="Mention preferred dishes, Veg/Non-Veg ratio, or special live counters..."
                   value={formData.requirements}
                   onChange={handleChange}
-                  className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3 text-xs text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm resize-none"
+                  className="w-full bg-white border border-[#111827]/15 rounded-xl px-4 py-3.5 text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:border-[#006B46] focus:ring-2 focus:ring-[#006B46]/15 transition-all shadow-sm resize-none"
                 />
               </div>
 
               {/* Submit CTA Button */}
               <button
                 type="submit"
-                className="w-full btn-editorial-solid py-4 rounded-full flex items-center justify-center gap-2 text-center text-[10px] shadow-lg mt-4"
+                className="w-full btn-editorial-solid py-4 rounded-full flex items-center justify-center gap-2 text-center text-xs shadow-lg mt-4"
               >
                 <MessageCircle className="w-4 h-4 fill-current text-white" />
                 <span>SEND INQUIRY VIA WHATSAPP</span>
