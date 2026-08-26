@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import PremiumHeroVisual from './PremiumHeroVisual';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -33,34 +32,90 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
+  // Natural rising steam motion particles
+  const steamParticles = [
+    { left: '60%', bottom: '25%', width: '140px', height: '240px', duration: 4.2, delay: 0 },
+    { left: '72%', bottom: '20%', width: '160px', height: '280px', duration: 4.8, delay: 1.0 },
+    { left: '84%', bottom: '22%', width: '120px', height: '220px', duration: 3.9, delay: 0.5 },
+  ];
+
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. ULTRA-PREMIUM MINIMALIST EDITORIAL HERO WITH LINE ART & RED ACCENT CIRCLE */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#F9F8F6]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* 1. CINEMATIC LUXURY SOUTH INDIAN CATERING HERO WITH SEAMLESS MOTION & HEAT VAPOR */}
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
+        
+        {/* CINEMATIC SLOW KEN-BURNS ANIMATED BACKGROUND (RIGHT-CONCENTRATED COMPOSITION) */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <motion.img 
+            src="south_indian_catering_hero.jpg" 
+            alt="Luxury South Indian Catering Chef Preparing Banana Leaf Feast" 
+            decoding="async"
+            loading="eager"
+            animate={{ 
+              scale: [1, 1.06, 1],
+              x: [0, -12, 0],
+              filter: ["brightness(0.55) contrast(1.15)", "brightness(0.60) contrast(1.18)", "brightness(0.55) contrast(1.15)"]
+            }}
+            transition={{ 
+              duration: 20, 
+              repeat: Infinity, 
+              repeatType: "mirror",
+              ease: "easeInOut" 
+            }}
+            className="w-full h-full object-cover object-right"
+          />
+
+          {/* Left-Side Dark Gradient Mask for Crisp Readable Editorial Text */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A1411]/95 via-[#0A1411]/75 to-transparent z-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1411] via-transparent to-[#0A1411]/40 z-0" />
+        </div>
+
+        {/* ♨️ NATURAL STEAM RISING FROM HOT SAMBAR & LEAF FEAST */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {steamParticles.map((pt, idx) => (
+            <motion.div
+              key={idx}
+              style={{ left: pt.left, bottom: pt.bottom, width: pt.width, height: pt.height }}
+              className="absolute rounded-full bg-gradient-to-t from-white/35 via-white/20 to-transparent filter blur-md sm:blur-lg"
+              animate={{
+                y: [0, -200, -360],
+                x: [-15, 25, -15],
+                opacity: [0, 0.7, 0],
+                scale: [0.7, 1.5, 2.4],
+              }}
+              transition={{
+                duration: pt.duration,
+                repeat: Infinity,
+                delay: pt.delay,
+                ease: 'easeOut',
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Left-Aligned Clean Editorial Typography & CTA */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            {/* Left Column: Clean Editorial Typography */}
             <motion.div 
-              className="lg:col-span-7 space-y-6 text-center lg:text-left z-10"
+              className="lg:col-span-8 space-y-6 text-center lg:text-left"
               initial="hidden"
               animate="visible"
               variants={heroContainerVariants}
             >
               <motion.div variants={heroItemVariants} className="inline-block">
-                <span className="font-title text-xs tracking-[0.25em] text-[#006B46] uppercase font-bold block">
+                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block">
                   ~ FLAVOURS OF TRADITION ~
                 </span>
               </motion.div>
 
-              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-[#111827] tracking-tight leading-[1.12]">
+              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12]">
                 Royal Feasts & Authentic <br />
-                <span className="font-serif italic text-[#006B46] font-normal">South Indian Hospitality.</span>
+                <span className="font-serif italic text-[#C5A059] font-normal">South Indian Hospitality.</span>
               </motion.h1>
 
-              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-[#374151] max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide">
+              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-200 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide">
                 Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
               </motion.p>
 
@@ -69,7 +124,7 @@ export default function HomeTeaser({ setActivePage }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('menus')}
-                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-lg"
+                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-xl"
                 >
                   EXPLORE MENUS
                 </motion.button>
@@ -78,7 +133,7 @@ export default function HomeTeaser({ setActivePage }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('services')}
-                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs"
+                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs text-white border-white/40 hover:bg-white hover:text-[#0A1411]"
                 >
                   WHAT WE DO
                 </motion.button>
@@ -89,7 +144,7 @@ export default function HomeTeaser({ setActivePage }) {
                 <motion.div 
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-2 cursor-pointer text-gray-500 hover:text-[#006B46] transition-colors"
+                  className="inline-flex items-center gap-2 cursor-pointer text-gray-400 hover:text-[#C5A059] transition-colors"
                   onClick={() => {
                     window.scrollTo({ top: window.innerHeight * 0.75, behavior: 'smooth' });
                   }}
@@ -97,23 +152,17 @@ export default function HomeTeaser({ setActivePage }) {
                   <span className="text-[10px] font-title tracking-[0.25em] uppercase font-bold">
                     SCROLL TO EXPLORE
                   </span>
-                  <ChevronDown className="w-4 h-4 text-[#006B46]" />
+                  <ChevronDown className="w-4 h-4 text-[#C5A059]" />
                 </motion.div>
               </motion.div>
             </motion.div>
 
-            {/* Right Column: Premium Animated Line Art & Red Circle Visual */}
-            <div className="lg:col-span-5 flex items-center justify-center z-10">
-              <PremiumHeroVisual />
-            </div>
-
           </div>
-
         </div>
       </section>
 
       {/* 2. INTEGRATED WARM LINEN & GOLD METRIC ROW */}
-      <section className="py-6 bg-[#F4F2ED] border-y border-[#006B46]/15">
+      <section className="py-6 bg-[#F4F2ED] border-b border-[#006B46]/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
