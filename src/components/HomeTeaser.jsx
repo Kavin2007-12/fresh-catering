@@ -43,10 +43,10 @@ export default function HomeTeaser({ setActivePage }) {
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. BRIGHT & CLEAR PURE SOUTH INDIAN CATERING FEAST HERO (MINIMAL DARKNESS) */}
+      {/* 1. BRIGHT & CLEAR PURE SOUTH INDIAN CATERING FEAST HERO */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
         
-        {/* BRIGHT & VIBRANT ANIMATED FOOD FEAST BACKGROUND (REDUCED DARKNESS) */}
+        {/* BRIGHT & VIBRANT ANIMATED FOOD FEAST BACKGROUND */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.img 
             src="south_indian_pure_food_hero.jpg" 
@@ -71,7 +71,7 @@ export default function HomeTeaser({ setActivePage }) {
             className="w-full h-full object-cover object-right"
           />
 
-          {/* Minimal Soft Left-Side Shadow Mask for Text Readability (No Heavy Darkness) */}
+          {/* Minimal Soft Left-Side Shadow Mask for Text Readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-0" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 z-0" />
         </div>
@@ -99,7 +99,7 @@ export default function HomeTeaser({ setActivePage }) {
           ))}
         </div>
 
-        {/* Left-Aligned Clean Editorial Typography & CTA */}
+        {/* Left-Aligned Clean Editorial Typography & Single EXPLORE MENUS CTA */}
         <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
@@ -124,23 +124,15 @@ export default function HomeTeaser({ setActivePage }) {
                 Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
               </motion.p>
 
-              <motion.div variants={heroItemVariants} className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              {/* SINGLE EXPLORE MENUS BUTTON */}
+              <motion.div variants={heroItemVariants} className="pt-2 flex justify-center lg:justify-start">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('menus')}
-                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-2xl"
+                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[210px] text-xs shadow-2xl"
                 >
                   EXPLORE MENUS
-                </motion.button>
-
-                <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => handlePageChange('services')}
-                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs text-white border-white/60 hover:bg-white hover:text-[#0A1411] shadow-xl"
-                >
-                  WHAT WE DO
                 </motion.button>
               </motion.div>
 
