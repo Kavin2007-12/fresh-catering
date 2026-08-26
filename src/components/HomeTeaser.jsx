@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Flame } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -32,7 +32,7 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  // Warm translucent steam particles rising over brass uruli vessels & banana leaf feast
+  // Warm translucent steam particles rising from hot brass uruli vessels & banana leaf feast
   const steamParticles = [
     { left: '58%', bottom: '32%', width: '140px', height: '260px', duration: 4.0, delay: 0 },
     { left: '70%', bottom: '36%', width: '160px', height: '290px', duration: 4.6, delay: 0.7 },
@@ -43,7 +43,7 @@ export default function HomeTeaser({ setActivePage }) {
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. VIBRANT HIGH-ATTRACTION SOUTH INDIAN CATERING FEAST HERO WITH TOP-LEFT ANIMATED CULINARY GIF */}
+      {/* 1. VIBRANT HIGH-ATTRACTION PURE SOUTH INDIAN CATERING FEAST HERO */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#070E0B]">
         
         {/* VIBRANT CINEMATIC KEN-BURNS ANIMATED FOOD FEAST BACKGROUND */}
@@ -99,41 +99,12 @@ export default function HomeTeaser({ setActivePage }) {
           ))}
         </div>
 
-        {/* 🎬 TOP-LEFT CORNER ANIMATED CULINARY GIF / MOTION GRAPHIC BADGE */}
-        <div className="absolute top-28 left-6 sm:left-12 z-20 pointer-events-none">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 px-3.5 py-2 rounded-full bg-black/60 backdrop-blur-md border border-[#C5A059]/50 shadow-2xl"
-          >
-            {/* Animated Cooking Flame GIF Indicator */}
-            <div className="relative w-7 h-7 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center shadow-md">
-              <motion.div 
-                animate={{ scale: [0.85, 1.15, 0.85], opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 rounded-full bg-amber-400/40 blur-sm"
-              />
-              <Flame className="w-4 h-4 text-white z-10 animate-pulse" />
-            </div>
-
-            <div className="flex flex-col text-left">
-              <span className="text-[10px] font-title font-bold tracking-[0.2em] text-[#C5A059] uppercase">
-                LIVE CULINARY KITCHEN
-              </span>
-              <span className="text-[9px] font-sans text-gray-300 font-light">
-                Piping Hot & Fresh Daily
-              </span>
-            </div>
-          </motion.div>
-        </div>
-
         {/* Left-Aligned Clean Editorial Typography & CTA */}
         <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <motion.div 
-              className="lg:col-span-8 space-y-6 text-center lg:text-left pt-12 sm:pt-0"
+              className="lg:col-span-8 space-y-6 text-center lg:text-left"
               initial="hidden"
               animate="visible"
               variants={heroContainerVariants}
