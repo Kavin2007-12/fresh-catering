@@ -33,11 +33,21 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
+  // Steam particle animation data
+  const steamParticles = [
+    { left: '20%', duration: 4.5, delay: 0 },
+    { left: '35%', duration: 5.2, delay: 1.2 },
+    { left: '50%', duration: 4.8, delay: 0.5 },
+    { left: '65%', duration: 5.5, delay: 1.8 },
+    { left: '80%', duration: 4.2, delay: 0.8 },
+  ];
+
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. CINEMATIC HERO BANNER WITH SLOW KEN-BURNS BACKGROUND ANIMATION */}
+      {/* 1. CINEMATIC HERO BANNER WITH ANIMATED STEAM & SMOKE PARTICLES */}
       <section className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
+        
         {/* Animated Background Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.img 
@@ -58,6 +68,29 @@ export default function HomeTeaser({ setActivePage }) {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1411] via-[#0A1411]/50 to-[#0A1411]/70" />
+        </div>
+
+        {/* ♨️ ANIMATED HOT STEAM & COOKING SMOKE EFFECT OVER HERO DISHES */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {steamParticles.map((pt, idx) => (
+            <motion.div
+              key={idx}
+              style={{ left: pt.left, bottom: '15%' }}
+              className="absolute w-24 h-48 rounded-full bg-gradient-to-t from-white/20 via-white/10 to-transparent filter blur-xl"
+              animate={{
+                y: [0, -180, -320],
+                x: [-15, 20, -15],
+                opacity: [0, 0.45, 0],
+                scale: [0.8, 1.5, 2.2],
+              }}
+              transition={{
+                duration: pt.duration,
+                repeat: Infinity,
+                delay: pt.delay,
+                ease: 'easeOut',
+              }}
+            />
+          ))}
         </div>
 
         {/* Staggered Text & CTA Entrance */}
