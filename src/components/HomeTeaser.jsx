@@ -32,95 +32,34 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  // Warm translucent steam particles rising from hot brass uruli vessels & banana leaf feast
-  const steamParticles = [
-    { left: '58%', bottom: '32%', width: '140px', height: '260px', duration: 4.0, delay: 0 },
-    { left: '70%', bottom: '36%', width: '160px', height: '290px', duration: 4.6, delay: 0.7 },
-    { left: '82%', bottom: '34%', width: '170px', height: '300px', duration: 4.3, delay: 1.3 },
-    { left: '90%', bottom: '38%', width: '130px', height: '240px', duration: 3.6, delay: 0.2 },
-  ];
-
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. VIBRANT HIGH-ATTRACTION PURE SOUTH INDIAN CATERING FEAST HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#070E0B]">
-        
-        {/* VIBRANT CINEMATIC KEN-BURNS ANIMATED FOOD FEAST BACKGROUND */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <motion.img 
-            src="south_indian_pure_food_hero.jpg" 
-            alt="Pure South Indian Catering Banana Leaf Feast & Brass Uruli Tableware" 
-            decoding="async"
-            loading="eager"
-            animate={{ 
-              scale: [1, 1.05, 1],
-              x: [0, -12, 0],
-              filter: [
-                "brightness(0.90) contrast(1.18) saturate(1.12)", 
-                "brightness(0.95) contrast(1.20) saturate(1.15)", 
-                "brightness(0.90) contrast(1.18) saturate(1.12)"
-              ]
-            }}
-            transition={{ 
-              duration: 20, 
-              repeat: Infinity, 
-              repeatType: "mirror",
-              ease: "easeInOut" 
-            }}
-            className="w-full h-full object-cover object-right"
-          />
-
-          {/* Precision Left-Side Dark Gradient Vignette for High Text Legibility & Vibrant Food Focus */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070E0B]/95 via-[#070E0B]/70 to-transparent z-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070E0B] via-transparent to-[#070E0B]/35 z-0" />
-        </div>
-
-        {/* ♨️ GLOWING WARM RISING STEAM PARTICLES OVER BRASS URULI CAULDRONS & FEAST */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          {steamParticles.map((pt, idx) => (
-            <motion.div
-              key={idx}
-              style={{ left: pt.left, bottom: pt.bottom, width: pt.width, height: pt.height }}
-              className="absolute rounded-full bg-gradient-to-t from-amber-100/35 via-white/20 to-transparent filter blur-md sm:blur-lg"
-              animate={{
-                y: [0, -220, -380],
-                x: [-15, 25, -15],
-                opacity: [0, 0.80, 0],
-                scale: [0.7, 1.6, 2.5],
-              }}
-              transition={{
-                duration: pt.duration,
-                repeat: Infinity,
-                delay: pt.delay,
-                ease: 'easeOut',
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Left-Aligned Clean Editorial Typography & CTA */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* 1. BRIGHT & LUMINOUS WARM LINEN ADAPTIVE HERO BANNER (NO DARK BACKGROUND) */}
+      <section className="relative min-h-[88vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#F9F8F6]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
+            {/* Left Column: Clean Bright Editorial Typography */}
             <motion.div 
-              className="lg:col-span-8 space-y-6 text-center lg:text-left"
+              className="lg:col-span-6 space-y-6 text-center lg:text-left z-10"
               initial="hidden"
               animate="visible"
               variants={heroContainerVariants}
             >
               <motion.div variants={heroItemVariants} className="inline-block">
-                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block drop-shadow-sm">
+                <span className="font-title text-xs tracking-[0.25em] text-[#006B46] uppercase font-bold block">
                   ~ FLAVOURS OF TRADITION ~
                 </span>
               </motion.div>
 
-              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12] drop-shadow-md">
+              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-6xl font-serif font-light text-[#111827] tracking-tight leading-[1.14]">
                 Royal Feasts & Authentic <br />
-                <span className="font-serif italic text-[#C5A059] font-normal">South Indian Hospitality.</span>
+                <span className="font-serif italic text-[#006B46] font-normal">South Indian Hospitality.</span>
               </motion.h1>
 
-              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-200 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide drop-shadow-sm">
+              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-[#374151] max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide">
                 Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
               </motion.p>
 
@@ -129,7 +68,7 @@ export default function HomeTeaser({ setActivePage }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('menus')}
-                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-xl"
+                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-lg"
                 >
                   EXPLORE MENUS
                 </motion.button>
@@ -138,7 +77,7 @@ export default function HomeTeaser({ setActivePage }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('services')}
-                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs text-white border-white/40 hover:bg-white hover:text-[#0A1411]"
+                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs"
                 >
                   WHAT WE DO
                 </motion.button>
@@ -149,7 +88,7 @@ export default function HomeTeaser({ setActivePage }) {
                 <motion.div 
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-2 cursor-pointer text-gray-300 hover:text-[#C5A059] transition-colors"
+                  className="inline-flex items-center gap-2 cursor-pointer text-gray-500 hover:text-[#006B46] transition-colors"
                   onClick={() => {
                     window.scrollTo({ top: window.innerHeight * 0.75, behavior: 'smooth' });
                   }}
@@ -157,17 +96,57 @@ export default function HomeTeaser({ setActivePage }) {
                   <span className="text-[10px] font-title tracking-[0.25em] uppercase font-bold">
                     SCROLL TO EXPLORE
                   </span>
-                  <ChevronDown className="w-4 h-4 text-[#C5A059]" />
+                  <ChevronDown className="w-4 h-4 text-[#006B46]" />
                 </motion.div>
               </motion.div>
             </motion.div>
 
+            {/* Right Column: Bright & Vibrant South Indian Feast Visual Card */}
+            <motion.div 
+              className="lg:col-span-6 z-10 flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="relative w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                <motion.img 
+                  src="south_indian_pure_food_hero.jpg" 
+                  alt="Pure South Indian Catering Banana Leaf Feast & Brass Uruli Tableware" 
+                  decoding="async"
+                  loading="eager"
+                  animate={{ 
+                    scale: [1, 1.06, 1],
+                  }}
+                  transition={{ 
+                    duration: 18, 
+                    repeat: Infinity, 
+                    repeatType: "mirror",
+                    ease: "easeInOut" 
+                  }}
+                  className="w-full h-[380px] sm:h-[460px] object-cover object-right"
+                />
+
+                {/* Subtle Bottom Light Glass Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
+
+                {/* Floating Light Accent Pill */}
+                <div className="absolute bottom-5 left-5 right-5 p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-[#006B46]/20 shadow-xl flex items-center justify-between">
+                  <div>
+                    <p className="font-serif text-base font-bold text-[#111827]">Traditional 21-Item Leaf Feast</p>
+                    <p className="text-xs text-[#374151] font-light">Pure Ghee, Farm-Fresh Ingredients & Butler Service</p>
+                  </div>
+                  <span className="w-3 h-3 rounded-full bg-[#006B46] animate-ping" />
+                </div>
+              </div>
+            </motion.div>
+
           </div>
+
         </div>
       </section>
 
       {/* 2. INTEGRATED WARM LINEN & GOLD METRIC ROW */}
-      <section className="py-6 bg-[#F4F2ED] border-b border-[#006B46]/15">
+      <section className="py-6 bg-[#F4F2ED] border-y border-[#006B46]/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
