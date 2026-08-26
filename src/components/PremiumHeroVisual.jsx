@@ -35,7 +35,7 @@ export default function PremiumHeroVisual() {
         className="absolute w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full border-2 border-[#C5A059]/40 border-dashed z-0"
       />
 
-      {/* 3. REAL VIEW GRAPHICS - HIGH-DEFINITION REAL SOUTH INDIAN FEAST PHOTOGRAPHY CUTOUT WITH 3D FLOATING SHADOW */}
+      {/* 3. REAL VIEW GRAPHICS - HIGH-DEFINITION REAL SOUTH INDIAN FEAST PHOTOGRAPHY CUTOUT (COMPLETELY TEXT-FREE) */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ 
@@ -58,15 +58,8 @@ export default function PremiumHeroVisual() {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
-        {/* Real Food Lighting Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
-
-        {/* Real Dish Floating Badge */}
-        <div className="absolute bottom-3 left-3 right-3 py-1.5 px-3 bg-white/95 backdrop-blur-md rounded-full border border-[#006B46]/20 text-center shadow-md">
-          <p className="font-serif text-xs font-bold text-[#111827] truncate">
-            Authentic 21-Item Leaf Feast
-          </p>
-        </div>
+        {/* Real Food Subtle Lighting Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
       </motion.div>
 
     </div>
