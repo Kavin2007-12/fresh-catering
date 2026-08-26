@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, Award, Play } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import PremiumHeroVisual from './PremiumHeroVisual';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -12,7 +13,6 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  // Stagger animation variants for Hero content
   const heroContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,110 +36,84 @@ export default function HomeTeaser({ setActivePage }) {
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. CINEMATIC HERO BANNER WITH LIVE MOVING CULINARY VIDEO/ANIMATED BACKGROUND */}
-      <section className="relative min-h-[88vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
-        
-        {/* LIVE MOVING CULINARY VIDEO BACKGROUND LOOP */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=2000&auto=format&fit=crop"
-            className="w-full h-full object-cover filter brightness-[0.38] contrast-[1.18] transform scale-105"
-          >
-            <source 
-              src="https://assets.mixkit.co/videos/preview/mixkit-chef-preparing-a-dish-in-a-professional-kitchen-41481-large.mp4" 
-              type="video/mp4" 
-            />
-            <source 
-              src="https://assets.mixkit.co/videos/preview/mixkit-hands-serving-food-at-a-buffet-41551-large.mp4" 
-              type="video/mp4" 
-            />
-          </video>
-
-          {/* Dark Overlay Gradient for Editorial Contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A1411] via-[#0A1411]/55 to-[#0A1411]/75" />
-        </div>
-
-        {/* 🎖️ ROTATING CIRCULAR ROYAL TRADITION SEAL */}
-        <div className="hidden md:block absolute top-28 right-12 z-20 pointer-events-none">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-            className="w-28 h-28 rounded-full border border-[#C5A059]/40 bg-[#0A1411]/60 backdrop-blur-md flex items-center justify-center p-2 shadow-2xl relative"
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full text-[#C5A059] fill-current">
-              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-              <text className="text-[9.5px] font-title font-bold tracking-[0.18em] uppercase">
-                <textPath href="#circlePath" startOffset="0%">
-                  ★ 100% PURE GHEE ★ TRADITIONAL SOUTH INDIAN FEAST ★
-                </textPath>
-              </text>
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center text-[#C5A059]">
-              <Award className="w-6 h-6" />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Staggered Text & CTA Entrance */}
-        <motion.div 
-          className="relative max-w-4xl mx-auto px-6 text-center z-10 space-y-6"
-          initial="hidden"
-          animate="visible"
-          variants={heroContainerVariants}
-        >
-          <motion.div variants={heroItemVariants} className="inline-block">
-            <span className="font-title text-[10px] sm:text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold flex items-center justify-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping inline-block" />
-              <span>~ LIVE CULINARY EXPERIENCE ~</span>
-            </span>
-          </motion.div>
-
-          <motion.h1 variants={heroItemVariants} className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light text-white tracking-tight leading-[1.15] max-w-3xl mx-auto">
-            Royal Feasts & Authentic <br className="hidden sm:inline" />
-            <span className="font-serif italic text-[#C5A059] font-normal">South Indian Culinary Hospitality.</span>
-          </motion.h1>
-
-          <motion.p variants={heroItemVariants} className="font-sans text-sm sm:text-base text-gray-200 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
-            Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
-          </motion.p>
-
-          <motion.div variants={heroItemVariants} className="pt-2 flex justify-center">
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => handlePageChange('menus')}
-              className="btn-editorial-solid px-9 py-3.5 rounded-full min-w-[190px] text-xs shadow-xl"
-            >
-              EXPLORE MENUS
-            </motion.button>
-          </motion.div>
-
-          {/* Animated Bouncing Scroll Indicator */}
-          <motion.div variants={heroItemVariants} className="pt-6">
+      {/* 1. ULTRA-PREMIUM MINIMALIST EDITORIAL HERO WITH LINE ART & RED ACCENT CIRCLE */}
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#F9F8F6]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Column: Clean Editorial Typography */}
             <motion.div 
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex flex-col items-center gap-1.5 cursor-pointer text-gray-400 hover:text-[#C5A059] transition-colors"
-              onClick={() => {
-                window.scrollTo({ top: window.innerHeight * 0.7, behavior: 'smooth' });
-              }}
+              className="lg:col-span-7 space-y-6 text-center lg:text-left z-10"
+              initial="hidden"
+              animate="visible"
+              variants={heroContainerVariants}
             >
-              <span className="text-[10px] font-title tracking-[0.25em] uppercase font-semibold">
-                SCROLL TO EXPLORE
-              </span>
-              <ChevronDown className="w-4 h-4 text-[#C5A059]" />
-            </motion.div>
-          </motion.div>
+              <motion.div variants={heroItemVariants} className="inline-block">
+                <span className="font-title text-xs tracking-[0.25em] text-[#006B46] uppercase font-bold block">
+                  ~ FLAVOURS OF TRADITION ~
+                </span>
+              </motion.div>
 
-        </motion.div>
+              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-[#111827] tracking-tight leading-[1.12]">
+                Royal Feasts & Authentic <br />
+                <span className="font-serif italic text-[#006B46] font-normal">South Indian Hospitality.</span>
+              </motion.h1>
+
+              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-[#374151] max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide">
+                Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
+              </motion.p>
+
+              <motion.div variants={heroItemVariants} className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => handlePageChange('menus')}
+                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-lg"
+                >
+                  EXPLORE MENUS
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => handlePageChange('services')}
+                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs"
+                >
+                  WHAT WE DO
+                </motion.button>
+              </motion.div>
+
+              {/* Scroll Indicator */}
+              <motion.div variants={heroItemVariants} className="pt-6 hidden sm:block">
+                <motion.div 
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="inline-flex items-center gap-2 cursor-pointer text-gray-500 hover:text-[#006B46] transition-colors"
+                  onClick={() => {
+                    window.scrollTo({ top: window.innerHeight * 0.75, behavior: 'smooth' });
+                  }}
+                >
+                  <span className="text-[10px] font-title tracking-[0.25em] uppercase font-bold">
+                    SCROLL TO EXPLORE
+                  </span>
+                  <ChevronDown className="w-4 h-4 text-[#006B46]" />
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Column: Premium Animated Line Art & Red Circle Visual */}
+            <div className="lg:col-span-5 flex items-center justify-center z-10">
+              <PremiumHeroVisual />
+            </div>
+
+          </div>
+
+        </div>
       </section>
 
       {/* 2. INTEGRATED WARM LINEN & GOLD METRIC ROW */}
-      <section className="py-6 bg-[#F4F2ED] border-b border-[#006B46]/15">
+      <section className="py-6 bg-[#F4F2ED] border-y border-[#006B46]/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[
