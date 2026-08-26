@@ -4,7 +4,11 @@ import { siteData } from '../data/cateringData';
 
 export default function Footer({ setActivePage }) {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   };
 
   const navLinks = [
@@ -24,7 +28,7 @@ export default function Footer({ setActivePage }) {
           
           <div className="md:col-span-2 space-y-4">
             <img 
-              src="/Primary Logo - Wordmark.png" 
+              src="Primary Logo - Wordmark.png" 
               alt="Fresh Catering" 
               className="h-9 w-auto object-contain brightness-125"
             />

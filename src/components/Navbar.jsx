@@ -26,7 +26,11 @@ export default function Navbar({ activePage, setActivePage }) {
   const handleNavClick = (id) => {
     setActivePage(id);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   };
 
   return (
@@ -44,7 +48,7 @@ export default function Navbar({ activePage, setActivePage }) {
             className="flex items-center gap-2.5 text-left focus:outline-none group"
           >
             <img 
-              src="/Primary Logo - Wordmark.png" 
+              src="Primary Logo - Wordmark.png" 
               alt="Fresh Catering" 
               className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
