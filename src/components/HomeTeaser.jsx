@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -12,71 +12,104 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  const subtleFade = {
-    hidden: { opacity: 0, y: 12 },
+  // Stagger animation variants for Hero content
+  const heroContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      }
+    }
+  };
+
+  const heroItemVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.5, ease: 'easeOut' } 
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } 
     }
   };
 
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. CINEMATIC HERO BANNER */}
+      {/* 1. CINEMATIC HERO BANNER WITH SLOW KEN-BURNS BACKGROUND ANIMATION */}
       <section className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
-        <div className="absolute inset-0 z-0">
-          <img 
+        {/* Animated Background Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <motion.img 
             src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=2000&auto=format&fit=crop" 
             alt="Fresh Catering Authentic Indian Feast" 
             decoding="async"
             loading="eager"
-            className="w-full h-full object-cover filter brightness-[0.38] contrast-[1.15]"
+            animate={{ 
+              scale: [1, 1.08, 1],
+              filter: ["brightness(0.38) contrast(1.15)", "brightness(0.42) contrast(1.18)", "brightness(0.38) contrast(1.15)"]
+            }}
+            transition={{ 
+              duration: 22, 
+              repeat: Infinity, 
+              repeatType: "mirror",
+              ease: "easeInOut" 
+            }}
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1411] via-[#0A1411]/50 to-[#0A1411]/70" />
         </div>
 
+        {/* Staggered Text & CTA Entrance */}
         <motion.div 
           className="relative max-w-4xl mx-auto px-6 text-center z-10 space-y-6"
           initial="hidden"
           animate="visible"
-          variants={{
-            hidden: { opacity: 0, y: 15 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
-          }}
+          variants={heroContainerVariants}
         >
-          <div className="inline-block">
+          <motion.div variants={heroItemVariants} className="inline-block">
             <span className="font-title text-[10px] sm:text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block">
               ~ FLAVOURS OF TRADITION ~
             </span>
-          </div>
+          </motion.div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light text-white tracking-tight leading-[1.15] max-w-3xl mx-auto">
+          <motion.h1 variants={heroItemVariants} className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light text-white tracking-tight leading-[1.15] max-w-3xl mx-auto">
             Royal Feasts & Authentic <br className="hidden sm:inline" />
             <span className="font-serif italic text-[#C5A059] font-normal">South Indian Culinary Hospitality.</span>
-          </h1>
+          </motion.h1>
 
-          <p className="font-sans text-sm sm:text-base text-gray-200 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
+          <motion.p variants={heroItemVariants} className="font-sans text-sm sm:text-base text-gray-200 max-w-xl mx-auto font-light leading-relaxed tracking-wide">
             Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
-          </p>
+          </motion.p>
 
-          <div className="pt-2 flex justify-center">
+          <motion.div variants={heroItemVariants} className="pt-2 flex justify-center">
             <motion.button
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handlePageChange('menus')}
-              className="btn-editorial-solid px-8 py-3.5 rounded-full min-w-[190px] text-xs"
+              className="btn-editorial-solid px-9 py-3.5 rounded-full min-w-[190px] text-xs shadow-xl"
             >
               EXPLORE MENUS
             </motion.button>
-          </div>
+          </motion.div>
 
-          <div className="pt-6">
-            <span className="text-[10px] font-title tracking-[0.25em] text-gray-400 uppercase inline-block font-semibold">
-              SCROLL TO EXPLORE ↓
-            </span>
-          </div>
+          {/* Animated Bouncing Scroll Indicator */}
+          <motion.div variants={heroItemVariants} className="pt-6">
+            <motion.div 
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-flex flex-col items-center gap-1.5 cursor-pointer text-gray-400 hover:text-[#C5A059] transition-colors"
+              onClick={() => {
+                window.scrollTo({ top: window.innerHeight * 0.7, behavior: 'smooth' });
+              }}
+            >
+              <span className="text-[10px] font-title tracking-[0.25em] uppercase font-semibold">
+                SCROLL TO EXPLORE
+              </span>
+              <ChevronDown className="w-4 h-4 text-[#C5A059]" />
+            </motion.div>
+          </motion.div>
+
         </motion.div>
       </section>
 
@@ -84,25 +117,24 @@ export default function HomeTeaser({ setActivePage }) {
       <section className="py-6 bg-[#F4F2ED] border-b border-[#006B46]/15">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="border-r border-[#006B46]/10 last:border-none px-2">
-              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">500+</p>
-              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">CELEBRATIONS CATERED</p>
-            </div>
-
-            <div className="border-r border-[#006B46]/10 last:border-none px-2">
-              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">100%</p>
-              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">PURE FRESH GHEE</p>
-            </div>
-
-            <div className="border-r border-[#006B46]/10 last:border-none px-2">
-              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">50,000+</p>
-              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">HAPPY GUESTS SERVED</p>
-            </div>
-
-            <div className="px-2">
-              <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">1 KITCHEN</p>
-              <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">PURE HYGIENE GUARANTEE</p>
-            </div>
+            {[
+              { val: "500+", label: "CELEBRATIONS CATERED" },
+              { val: "100%", label: "PURE FRESH GHEE" },
+              { val: "50,000+", label: "HAPPY GUESTS SERVED" },
+              { val: "1 KITCHEN", label: "PURE HYGIENE GUARANTEE" }
+            ].map((metric, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="border-r border-[#006B46]/10 last:border-none px-2"
+              >
+                <p className="text-xl sm:text-2xl font-serif font-bold text-[#006B46]">{metric.val}</p>
+                <p className="text-[10px] font-title tracking-[0.2em] uppercase text-[#374151] font-bold">{metric.label}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -111,10 +143,10 @@ export default function HomeTeaser({ setActivePage }) {
       <section className="py-16 bg-[#F9F8F6]">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div 
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-30px" }}
-            variants={subtleFade}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="editorial-card p-8 sm:p-12 rounded-2xl text-center space-y-5 bg-white shadow-sm"
           >
             <div className="inline-block">
@@ -132,13 +164,14 @@ export default function HomeTeaser({ setActivePage }) {
             </p>
 
             <div className="pt-2">
-              <button
+              <motion.button
+                whileHover={{ x: 3 }}
                 onClick={() => handlePageChange('about')}
                 className="font-title text-[11px] tracking-[0.2em] text-[#006B46] hover:text-[#044C33] uppercase inline-flex items-center gap-2 font-bold group"
               >
                 <span>DISCOVER OUR STORY</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
+              </motion.button>
             </div>
           </motion.div>
         </div>
@@ -149,7 +182,13 @@ export default function HomeTeaser({ setActivePage }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            <div className="lg:col-span-6 space-y-5">
+            <motion.div 
+              className="lg:col-span-6 space-y-5"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.6 }}
+            >
               <span className="font-title text-[10px] tracking-[0.25em] text-[#006B46] uppercase font-bold block">
                 THE BANANA LEAF EXPERIENCE
               </span>
@@ -162,21 +201,23 @@ export default function HomeTeaser({ setActivePage }) {
               </p>
 
               <div className="pt-1">
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('services')}
                   className="btn-editorial-solid px-8 py-3.5 rounded-full text-xs"
                 >
                   EXPLORE OUR SERVICES
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
 
             <motion.div 
               className="lg:col-span-6"
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-30px" }}
-              variants={subtleFade}
+              transition={{ duration: 0.6 }}
             >
               <div className="relative rounded-xl overflow-hidden shadow-xl border-4 border-white group">
                 <img 
@@ -222,8 +263,12 @@ export default function HomeTeaser({ setActivePage }) {
                 { num: '04', title: 'Live Execution', desc: 'Chefs and butler team arrive early, live counters fire up hot.' },
                 { num: '05', title: 'Clean Departure', desc: 'Hygienic leftover packaging and spotless kitchen venue cleanup.' }
               ].map((step, idx) => (
-                <div 
+                <motion.div 
                   key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="flex flex-col items-center text-center space-y-3 group"
                 >
                   <div className="w-14 h-14 rounded-full bg-white border-2 border-[#006B46] text-[#006B46] font-serif font-bold text-lg flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:bg-[#006B46] group-hover:text-white">
@@ -232,7 +277,7 @@ export default function HomeTeaser({ setActivePage }) {
 
                   <h4 className="font-serif text-lg font-bold text-[#111827] pt-1">{step.title}</h4>
                   <p className="text-xs sm:text-sm text-[#374151] font-light leading-relaxed max-w-[200px]">{step.desc}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
