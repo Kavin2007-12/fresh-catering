@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import Hero from './Hero';
 
 export default function HomeTeaser({ setActivePage }) {
   const handlePageChange = (page) => {
@@ -12,151 +13,11 @@ export default function HomeTeaser({ setActivePage }) {
     }
   };
 
-  const heroContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      }
-    }
-  };
-
-  const heroItemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } 
-    }
-  };
-
-  // Translucent steam particles rising from hot brass uruli vessels & banana leaf feast
-  const steamParticles = [
-    { left: '58%', bottom: '32%', width: '140px', height: '260px', duration: 4.0, delay: 0 },
-    { left: '70%', bottom: '36%', width: '160px', height: '290px', duration: 4.6, delay: 0.7 },
-    { left: '82%', bottom: '34%', width: '170px', height: '300px', duration: 4.3, delay: 1.3 },
-    { left: '90%', bottom: '38%', width: '130px', height: '240px', duration: 3.6, delay: 0.2 },
-  ];
-
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. BRIGHT & CLEAR PURE SOUTH INDIAN CATERING FEAST HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
-        
-        {/* BRIGHT & VIBRANT ANIMATED FOOD FEAST BACKGROUND */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <motion.img 
-            src="south_indian_pure_food_hero.jpg" 
-            alt="Pure South Indian Catering Banana Leaf Feast & Brass Uruli Tableware" 
-            decoding="async"
-            loading="eager"
-            animate={{ 
-              scale: [1, 1.05, 1],
-              x: [0, -12, 0],
-              filter: [
-                "brightness(0.95) contrast(1.10)", 
-                "brightness(1.00) contrast(1.12)", 
-                "brightness(0.95) contrast(1.10)"
-              ]
-            }}
-            transition={{ 
-              duration: 20, 
-              repeat: Infinity, 
-              repeatType: "mirror",
-              ease: "easeInOut" 
-            }}
-            className="w-full h-full object-cover object-right"
-          />
-
-          {/* Minimal Soft Left-Side Shadow Mask for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 z-0" />
-        </div>
-
-        {/* ♨️ REALISTIC RISING STEAM PARTICLES OVER HOT FEAST */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          {steamParticles.map((pt, idx) => (
-            <motion.div
-              key={idx}
-              style={{ left: pt.left, bottom: pt.bottom, width: pt.width, height: pt.height }}
-              className="absolute rounded-full bg-gradient-to-t from-white/45 via-white/25 to-transparent filter blur-md sm:blur-lg"
-              animate={{
-                y: [0, -220, -380],
-                x: [-15, 25, -15],
-                opacity: [0, 0.85, 0],
-                scale: [0.7, 1.6, 2.5],
-              }}
-              transition={{
-                duration: pt.duration,
-                repeat: Infinity,
-                delay: pt.delay,
-                ease: 'easeOut',
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Left-Aligned Clean Editorial Typography & Single EXPLORE MENUS CTA */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            <motion.div 
-              className="lg:col-span-8 space-y-6 text-center lg:text-left"
-              initial="hidden"
-              animate="visible"
-              variants={heroContainerVariants}
-            >
-              <motion.div variants={heroItemVariants} className="inline-block">
-                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                  ~ FLAVOURS OF TRADITION ~
-                </span>
-              </motion.div>
-
-              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
-                Royal Feasts & Authentic <br />
-                <span className="font-serif italic text-[#C5A059] font-normal drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">South Indian Hospitality.</span>
-              </motion.h1>
-
-              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-100 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
-              </motion.p>
-
-              {/* SINGLE EXPLORE MENUS BUTTON */}
-              <motion.div variants={heroItemVariants} className="pt-2 flex justify-center lg:justify-start">
-                <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => handlePageChange('menus')}
-                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[210px] text-xs shadow-2xl"
-                >
-                  EXPLORE MENUS
-                </motion.button>
-              </motion.div>
-
-              {/* Scroll Indicator */}
-              <motion.div variants={heroItemVariants} className="pt-6 hidden sm:block">
-                <motion.div 
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-2 cursor-pointer text-gray-200 hover:text-[#C5A059] transition-colors drop-shadow"
-                  onClick={() => {
-                    window.scrollTo({ top: window.innerHeight * 0.75, behavior: 'smooth' });
-                  }}
-                >
-                  <span className="text-[10px] font-title tracking-[0.25em] uppercase font-bold">
-                    SCROLL TO EXPLORE
-                  </span>
-                  <ChevronDown className="w-4 h-4 text-[#C5A059]" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
+      {/* 1. ULTRA-AESTHETIC LUXURY HERO SECTION */}
+      <Hero setActivePage={handlePageChange} />
 
       {/* 2. INTEGRATED WARM LINEN & GOLD METRIC ROW */}
       <section className="py-6 bg-[#F4F2ED] border-b border-[#006B46]/15">
