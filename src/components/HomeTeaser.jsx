@@ -43,10 +43,10 @@ export default function HomeTeaser({ setActivePage }) {
   return (
     <div className="space-y-0 text-[#111827]">
       
-      {/* 1. VIBRANT HIGH-ATTRACTION PURE SOUTH INDIAN CATERING FEAST HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#070E0B]">
+      {/* 1. BRIGHT & CLEAR PURE SOUTH INDIAN CATERING FEAST HERO (MINIMAL DARKNESS) */}
+      <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0A1411]">
         
-        {/* VIBRANT CINEMATIC KEN-BURNS ANIMATED FOOD FEAST BACKGROUND */}
+        {/* BRIGHT & VIBRANT ANIMATED FOOD FEAST BACKGROUND (REDUCED DARKNESS) */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.img 
             src="south_indian_pure_food_hero.jpg" 
@@ -57,9 +57,9 @@ export default function HomeTeaser({ setActivePage }) {
               scale: [1, 1.05, 1],
               x: [0, -12, 0],
               filter: [
-                "brightness(0.90) contrast(1.18) saturate(1.12)", 
-                "brightness(0.95) contrast(1.20) saturate(1.15)", 
-                "brightness(0.90) contrast(1.18) saturate(1.12)"
+                "brightness(0.95) contrast(1.10)", 
+                "brightness(1.00) contrast(1.12)", 
+                "brightness(0.95) contrast(1.10)"
               ]
             }}
             transition={{ 
@@ -71,22 +71,22 @@ export default function HomeTeaser({ setActivePage }) {
             className="w-full h-full object-cover object-right"
           />
 
-          {/* Precision Left-Side Dark Gradient Vignette for High Text Legibility & Vibrant Food Focus */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070E0B]/95 via-[#070E0B]/70 to-transparent z-0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070E0B] via-transparent to-[#070E0B]/35 z-0" />
+          {/* Minimal Soft Left-Side Shadow Mask for Text Readability (No Heavy Darkness) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 z-0" />
         </div>
 
-        {/* ♨️ GLOWING WARM RISING STEAM PARTICLES OVER BRASS URULI CAULDRONS & FEAST */}
+        {/* ♨️ REALISTIC RISING STEAM PARTICLES OVER HOT FEAST */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           {steamParticles.map((pt, idx) => (
             <motion.div
               key={idx}
               style={{ left: pt.left, bottom: pt.bottom, width: pt.width, height: pt.height }}
-              className="absolute rounded-full bg-gradient-to-t from-amber-100/35 via-white/20 to-transparent filter blur-md sm:blur-lg"
+              className="absolute rounded-full bg-gradient-to-t from-white/45 via-white/25 to-transparent filter blur-md sm:blur-lg"
               animate={{
                 y: [0, -220, -380],
                 x: [-15, 25, -15],
-                opacity: [0, 0.80, 0],
+                opacity: [0, 0.85, 0],
                 scale: [0.7, 1.6, 2.5],
               }}
               transition={{
@@ -110,17 +110,17 @@ export default function HomeTeaser({ setActivePage }) {
               variants={heroContainerVariants}
             >
               <motion.div variants={heroItemVariants} className="inline-block">
-                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block drop-shadow-sm">
+                <span className="font-title text-xs tracking-[0.25em] text-[#C5A059] uppercase font-bold block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   ~ FLAVOURS OF TRADITION ~
                 </span>
               </motion.div>
 
-              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12] drop-shadow-md">
+              <motion.h1 variants={heroItemVariants} className="text-4xl sm:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">
                 Royal Feasts & Authentic <br />
-                <span className="font-serif italic text-[#C5A059] font-normal">South Indian Hospitality.</span>
+                <span className="font-serif italic text-[#C5A059] font-normal drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">South Indian Hospitality.</span>
               </motion.h1>
 
-              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-200 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide drop-shadow-sm">
+              <motion.p variants={heroItemVariants} className="font-sans text-base sm:text-lg text-gray-100 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                 Traditional 21-item banana leaf spreads, live interactive counters, and luxury reception buffets prepared with 100% farm-fresh ingredients and pure ghee.
               </motion.p>
 
@@ -129,7 +129,7 @@ export default function HomeTeaser({ setActivePage }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('menus')}
-                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-xl"
+                  className="btn-editorial-solid px-9 py-4 rounded-full min-w-[200px] text-xs shadow-2xl"
                 >
                   EXPLORE MENUS
                 </motion.button>
@@ -138,7 +138,7 @@ export default function HomeTeaser({ setActivePage }) {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handlePageChange('services')}
-                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs text-white border-white/40 hover:bg-white hover:text-[#0A1411]"
+                  className="btn-editorial-outline px-9 py-4 rounded-full min-w-[200px] text-xs text-white border-white/60 hover:bg-white hover:text-[#0A1411] shadow-xl"
                 >
                   WHAT WE DO
                 </motion.button>
@@ -149,7 +149,7 @@ export default function HomeTeaser({ setActivePage }) {
                 <motion.div 
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-2 cursor-pointer text-gray-300 hover:text-[#C5A059] transition-colors"
+                  className="inline-flex items-center gap-2 cursor-pointer text-gray-200 hover:text-[#C5A059] transition-colors drop-shadow"
                   onClick={() => {
                     window.scrollTo({ top: window.innerHeight * 0.75, behavior: 'smooth' });
                   }}
